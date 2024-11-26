@@ -90,6 +90,27 @@ void modifier_tache(){
             printf("Tâche modifiée avec succès!\n");
 }
 
+void supprimer_tache(){
+        int index;
+        afficher_tache();
+          if (nb_taches == 0){
+            printf("rien de tache pour supprimer.\n ");
+            return;
+        }
+        printf("entrer le numero de la tache à supprimer:");
+        scanf("%d", &index);
+        index--;
+        if(index < 0 || index >= nb_taches){
+            printf("numero de tache invalide.\n");
+            return;
+        }
+        for(int i = index; i < nb_taches - 1; i++){
+            taches[i] = taches[i + 1];
+        }
+        nb_taches--;
+        printf("tache supprimee avec succes\n");
+}
+
 
 int main()
 {
@@ -116,8 +137,8 @@ do{
                 modifier_tache();
                 break;
             case 4:
-                
-            break;
+                supprimer_tache();
+                break;
             case 5:
                 
             break;
