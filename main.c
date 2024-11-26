@@ -32,7 +32,20 @@ void add_tache() {
         printf("Tâche ajoutée avec succès!\n");
     }
     
-   
+void afficher_tache() {
+    if (nb_taches == 0) {
+        printf("Aucune tâche à afficher.\n");
+        return;
+    }
+    printf("\nListe des Tâches:\n");
+    for (int i = 0; i < nb_taches; i++) {
+        printf("Tâche %d:\n", i + 1);
+        printf("Titre: %s\n", taches[i].titre);
+        printf("Description: %s\n", taches[i].description);
+        printf("Date d'échéance: %s\n", taches[i].date);
+        printf("Priorité: %s\n\n", taches[i].priorite);
+    }
+}
  
 
 
@@ -53,9 +66,9 @@ do{
   switch (choix) {
             case 1:
                 add_tache();
-            break;
+                break;
             case 2:
-                
+                afficher_tache();
             break;
             case 3:
                 
