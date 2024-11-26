@@ -111,6 +111,28 @@ void supprimer_tache(){
         printf("tache supprimee avec succes\n");
 }
 
+ void filtrer_tache(){
+        char priorite[11];
+        
+          if (nb_taches == 0){
+            printf("rien de tache pour filter.\n ");
+            return;
+        }
+        printf("entrer la priorite (low/high):");
+        scanf(" %[^\n]" , priorite);
+        
+        printf("tache avec priorite %s:\n", priorite);
+        for(int i=0 ; i<nb_taches ; i++){
+            if(strcmp(taches[i].priorite , priorite) == 0){
+                printf("titre %s\n", taches[i].titre);
+                printf("description %s\n", taches[i].description);
+                printf("date d'echeance %s\n", taches[i].date);
+                printf("date priorite %s\n", taches[i].priorite);
+
+            }
+        }
+}
+
 
 int main()
 {
@@ -140,8 +162,8 @@ do{
                 supprimer_tache();
                 break;
             case 5:
-                
-            break;
+                filtrer_tache();
+                break;
     default:
     printf("choix invalide. veuillez reessayer. \n");
 }
