@@ -47,6 +47,48 @@ void afficher_tache() {
     }
 }
  
+void modifier_tache(){
+        int index;
+        afficher_tache();
+        if (nb_taches == 0){
+            printf("rien de tache à modifier.\n ");
+            return;
+        }
+        printf("ecrire le num de la tache à modifier:");
+        scanf("%d", &index);
+        index--;
+        
+        if(index < 0 || index >= nb_taches){
+            printf("numero de tache invalide \n");
+            return;
+        }
+        printf("modifier la tache %d \n", index + 1);
+        printf("nouveau titre ");
+        char nouveau_titre[101];
+        scanf(" %[^\n]", nouveau_titre);
+        if (strlen(nouveau_titre) > 0){
+            strcpy(taches[index].titre, nouveau_titre);
+        }
+        printf("nouvelle description ");
+        char nouvelle_description[1000];
+        scanf(" %[^\n]", nouvelle_description);
+        if(strlen(nouvelle_description) > 0){
+            strcpy(taches[index].description, nouvelle_description);
+        }
+         printf("nouvelle date: ");
+        char nouvelle_date[12];
+        scanf(" %[^\n]", nouvelle_date);
+        if(strlen(nouvelle_date) > 0){
+            strcpy(taches[index].date, nouvelle_date);
+        }
+         printf("nouvelle Priorité:");
+        char nouvelle_priorite[11];
+        scanf(" %[^\n]", nouvelle_priorite);
+        if(strlen(nouvelle_priorite) > 0){
+            strcpy(taches[index].priorite, nouvelle_priorite);
+        }
+            printf("Tâche modifiée avec succès!\n");
+}
 
 
 int main()
@@ -69,10 +111,10 @@ do{
                 break;
             case 2:
                 afficher_tache();
-            break;
+                break;
             case 3:
-                
-            break;
+                modifier_tache();
+                break;
             case 4:
                 
             break;
